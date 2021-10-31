@@ -19,14 +19,20 @@ namespace JOIEnergy.Controllers
             _meterReadingService = meterReadingService;
         }
         // POST api/values
-        [HttpPost ("store")]
-        public ObjectResult Post([FromBody]MeterReadings meterReadings)
+        [HttpPost("store")]
+        public ObjectResult Post([FromBody] MeterReadings meterReadings)
         {
-            if (!IsMeterReadingsValid(meterReadings)) {
+            if (!IsMeterReadingsValid(meterReadings))
+            {
                 return new BadRequestObjectResult("Internal Server Error");
             }
-            _meterReadingService.StoreReadings(meterReadings.SmartMeterId,meterReadings.ElectricityReadings);
-            return new OkObjectResult("{}");
+
+            _meterReadingService.StoreReadings(meterReadings.SmartMeterId, meterReadings.ElectricityReadings);
+            return new OkObjectResult(new
+            {
+                result = "success",
+                storedDateTime = DateTime.Now
+            });
         }
 
         private bool IsMeterReadingsValid(MeterReadings meterReadings)
