@@ -30,17 +30,17 @@ namespace JOIEnergy
 
             var pricePlans = new List<PricePlan> {
                 new PricePlan{
-                    EnergySupplier = Enums.Supplier.DrEvilsDarkEnergy,
+                    EnergySupplier = Supplier.DrEvilsDarkEnergy,
                     UnitRate = 10m,
                     PeakTimeMultiplier = new List<PeakTimeMultiplier>()
                 },
                 new PricePlan{
-                    EnergySupplier = Enums.Supplier.TheGreenEco,
+                    EnergySupplier = Supplier.TheGreenEco,
                     UnitRate = 2m,
                     PeakTimeMultiplier = new List<PeakTimeMultiplier>()
                 },
                 new PricePlan{
-                    EnergySupplier = Enums.Supplier.PowerForEveryone,
+                    EnergySupplier = Supplier.PowerForEveryone,
                     UnitRate = 1m,
                     PeakTimeMultiplier = new List<PeakTimeMultiplier>()
                 }
@@ -73,16 +73,16 @@ namespace JOIEnergy
 
             foreach (var smartMeterId in smartMeterIds)
             {
-                readings.Add(smartMeterId, generator.Generate(20));
+                readings.Add(smartMeterId, generator.Generate(3));
             }
             return readings;
         }
 
-        public Dictionary<String, Supplier> SmartMeterToPricePlanAccounts
+        public Dictionary<string, Supplier> SmartMeterToPricePlanAccounts
         {
             get
             {
-                Dictionary<String, Supplier> smartMeterToPricePlanAccounts = new Dictionary<string, Supplier>();
+                Dictionary<string, Supplier> smartMeterToPricePlanAccounts = new Dictionary<string, Supplier>();
                 smartMeterToPricePlanAccounts.Add("smart-meter-0", Supplier.DrEvilsDarkEnergy);
                 smartMeterToPricePlanAccounts.Add("smart-meter-1", Supplier.TheGreenEco);
                 smartMeterToPricePlanAccounts.Add("smart-meter-2", Supplier.DrEvilsDarkEnergy);

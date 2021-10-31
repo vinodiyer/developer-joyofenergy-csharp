@@ -8,7 +8,7 @@ namespace JOIEnergy.Tests
 {
     public class PricePlanTest
     {
-        private PricePlan _pricePlan;
+        private readonly PricePlan _pricePlan;
 
         public PricePlanTest()
         {

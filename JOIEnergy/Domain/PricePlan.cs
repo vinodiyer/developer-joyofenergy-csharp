@@ -16,15 +16,9 @@ namespace JOIEnergy.Domain
 
             if (multiplier?.Multiplier != null) {
                 return multiplier.Multiplier * UnitRate;
-            } else {
-                return UnitRate;
             }
-        }
-    }
 
-    public class PeakTimeMultiplier
-    {
-        public DayOfWeek DayOfWeek { get; set; }
-        public decimal Multiplier { get; set; }
+            return UnitRate;
+        }
     }
 }

@@ -15,11 +15,11 @@ namespace JOIEnergy.Tests
         private MeterReadingService meterReadingService;
         private PricePlanComparatorController controller;
         private Dictionary<string, Supplier> smartMeterToPricePlanAccounts = new Dictionary<string, Supplier>();
-        private static String SMART_METER_ID = "smart-meter-id";
+        private static string SMART_METER_ID = "smart-meter-id";
 
         public PricePlanComparisonTest()
         {
-            var readings = new Dictionary<string, List<Domain.ElectricityReading>>();
+            var readings = new Dictionary<string, List<ElectricityReading>>();
             meterReadingService = new MeterReadingService(readings);
             var pricePlans = new List<PricePlan>() { 
                 new PricePlan() { EnergySupplier = Supplier.DrEvilsDarkEnergy, UnitRate = 10, PeakTimeMultiplier = NoMultipliers() }, 
