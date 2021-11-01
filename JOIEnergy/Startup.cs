@@ -52,7 +52,8 @@ namespace JOIEnergy
             services.AddTransient<IPricePlanService, PricePlanService>();
             services.AddSingleton((IServiceProvider arg) => readings);
             services.AddSingleton((IServiceProvider arg) => pricePlans);
-            services.AddSingleton((IServiceProvider arg) => SmartMeterToPricePlanAccounts);
+            services.AddSingleton(provider => SmartMeterToPricePlanAccounts);
+            services.AddSingleton(provider => HealthPings);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,5 +92,7 @@ namespace JOIEnergy
                 return smartMeterToPricePlanAccounts;
             }
         }
+
+        public List<HealthPing> HealthPings => new();
     }
 }
